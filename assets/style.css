@@ -1,0 +1,209 @@
+:root {
+    --color-primary: #1F3A5F;
+    --color-secondary: #4A6B8A;
+    --color-text: #1A1A1A;
+    --color-text-muted: #4A4A4A;
+    --color-text-faint: #767676;
+    --color-border: #DCDFE3;
+    --color-border-strong: #B5BCC4;
+    --color-surface: #FFFFFF;
+    --color-surface-alt: #F7F8FA;
+    --font-serif: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --radius: 4px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 28px 48px 28px;
+    background-color: var(--color-surface);
+    min-height: 100vh;
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+}
+
+.app-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.app-title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+.app-subtitle {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 760px;
+}
+
+.controls {
+    margin-bottom: 24px;
+    padding: 18px 20px;
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.control-label {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--color-text-muted);
+}
+
+.control-dropdown {
+    max-width: 420px;
+}
+
+.control-dropdown .Select-control,
+.control-dropdown .Select-control:hover,
+.control-dropdown .Select-menu-outer {
+    border-color: var(--color-border-strong) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: none !important;
+}
+
+.control-help {
+    color: var(--color-text-faint);
+    font-size: 12px;
+    margin-top: 4px;
+    max-width: 720px;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.dashboard-section {
+    border-top: 1px solid var(--color-border);
+    padding-top: 24px;
+}
+
+.dashboard-section:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 16px 0;
+    letter-spacing: 0.1px;
+}
+
+.section-body {
+    display: grid;
+    gap: 24px;
+}
+
+.section-body.single {
+    grid-template-columns: 1fr;
+}
+
+.section-body.two-columns-equal {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.section-body.two-columns-wide-left {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+}
+
+@media (max-width: 980px) {
+    .section-body.two-columns-equal,
+    .section-body.two-columns-wide-left {
+        grid-template-columns: 1fr;
+    }
+}
+
+.figure-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 12px 12px 4px 12px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.figure-card.wide {
+    grid-column: span 1;
+}
+
+.app-footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border);
+    font-size: 12px;
+    color: var(--color-text-faint);
+    line-height: 1.5;
+}
+
+.app-footer p {
+    margin: 0 0 4px 0;
+}
+
+.app-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-meta {
+    color: var(--color-text-muted);
+}
+
+.js-plotly-plot .plotly .modebar {
+    background-color: transparent !important;
+}
+
+.js-plotly-plot .plotly .modebar-btn path {
+    fill: var(--color-text-muted) !important;
+}
