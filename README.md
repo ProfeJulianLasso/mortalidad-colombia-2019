@@ -72,7 +72,7 @@ URL pública de la aplicación: <https://mortalidad-colombia-2019-bmkh.onrender.
 Clonar el repositorio y crear el entorno de desarrollo:
 
 ```bash
-git clone git@github.com:ProfeJulianLasso/mortalidad-colombia-2019.git
+git clone https://github.com/ProfeJulianLasso/mortalidad-colombia-2019.git
 cd mortalidad-colombia-2019
 uv sync
 ```
