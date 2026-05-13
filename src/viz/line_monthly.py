@@ -8,8 +8,6 @@ import plotly.graph_objects as go
 from src.data.constants import MONTH_LABELS
 from src.viz import theme
 
-DATA_SOURCE = "DANE — Estadísticas Vitales 2019"
-
 
 def create(deaths: pd.DataFrame, department: str | None = None) -> go.Figure:
     """Defunciones mes a mes. Si se indica un departamento, lo filtra."""
@@ -37,5 +35,4 @@ def create(deaths: pd.DataFrame, department: str | None = None) -> go.Figure:
     theme.apply_layout(fig, title=title, height=380, show_legend=False)
     fig.update_xaxes(title="Mes")
     fig.update_yaxes(title="Defunciones registradas", tickformat=",d")
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig

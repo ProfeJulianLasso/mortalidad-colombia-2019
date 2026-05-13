@@ -7,8 +7,6 @@ import plotly.graph_objects as go
 
 from src.viz import theme
 
-DATA_SOURCE = "DANE — Estadísticas Vitales 2019."
-
 _SEX_ORDER = ["Hombre", "Mujer", "Indeterminado"]
 
 
@@ -52,5 +50,4 @@ def create(deaths: pd.DataFrame) -> go.Figure:
     )
     fig.update_xaxes(title="Defunciones registradas", tickformat=",d")
     fig.update_yaxes(title="", automargin=True)
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig

@@ -8,8 +8,6 @@ import plotly.graph_objects as go
 from src.data.constants import VIOLENT_DEATH_PREFIX
 from src.viz import theme
 
-DATA_SOURCE = "DANE — Estadísticas Vitales 2019, códigos CIE-10 X95.x"
-
 
 def create(
     deaths: pd.DataFrame,
@@ -56,5 +54,4 @@ def create(
     theme.apply_layout(fig, title=title, height=380, show_legend=False)
     fig.update_xaxes(title="Homicidios registrados", tickformat=",d")
     fig.update_yaxes(title="", automargin=True)
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig

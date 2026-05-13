@@ -108,18 +108,3 @@ def apply_layout(
         title_font=dict(family=BODY_FONT, size=12, color=NEUTRAL_DARK),
     )
     return fig
-
-
-def annotate_source(fig: go.Figure, source: str) -> go.Figure:
-    """Añade nota al pie con la fuente del dato (estilo APA)."""
-    fig.add_annotation(
-        text=f"<i>Fuente:</i> {source}",
-        xref="paper",
-        yref="paper",
-        x=0,
-        y=-0.18,
-        showarrow=False,
-        font=dict(family=BODY_FONT, size=10, color=NEUTRAL_MEDIUM),
-        xanchor="left",
-    )
-    return fig

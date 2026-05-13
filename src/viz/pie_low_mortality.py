@@ -7,8 +7,6 @@ import plotly.graph_objects as go
 
 from src.viz import theme
 
-DATA_SOURCE = "DANE — Estadísticas Vitales 2019. Se excluyen municipios sin defunciones registradas."
-
 
 def create(
     deaths: pd.DataFrame,
@@ -53,5 +51,4 @@ def create(
     )
 
     theme.apply_layout(fig, title=title, height=460, show_legend=False)
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig

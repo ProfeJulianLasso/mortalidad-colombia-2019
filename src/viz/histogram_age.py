@@ -8,11 +8,6 @@ import plotly.graph_objects as go
 from src.data.age_groups import LIFE_STAGE_ORDER, LIFE_STAGE_RANGE
 from src.viz import theme
 
-DATA_SOURCE = (
-    "DANE — Estadísticas Vitales 2019. Agrupación por ciclo vital según los "
-    "códigos GRUPO_EDAD1 del DANE."
-)
-
 
 def create(deaths: pd.DataFrame, department: str | None = None) -> go.Figure:
     """Histograma ordenado por etapa del ciclo vital."""
@@ -41,5 +36,4 @@ def create(deaths: pd.DataFrame, department: str | None = None) -> go.Figure:
     theme.apply_layout(fig, title=title, height=480, show_legend=False)
     fig.update_xaxes(title="Etapa del ciclo vital", tickangle=-30)
     fig.update_yaxes(title="Defunciones registradas", tickformat=",d")
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig

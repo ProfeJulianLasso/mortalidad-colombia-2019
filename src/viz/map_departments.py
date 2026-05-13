@@ -7,8 +7,6 @@ import plotly.graph_objects as go
 
 from src.viz import theme
 
-DATA_SOURCE = "DANE — Estadísticas Vitales 2019"
-
 
 def create(deaths: pd.DataFrame, geojson: dict) -> go.Figure:
     """Construye el coroplético nacional. No se filtra por departamento."""
@@ -54,5 +52,4 @@ def create(deaths: pd.DataFrame, geojson: dict) -> go.Figure:
         height=620,
         show_legend=False,
     )
-    theme.annotate_source(fig, DATA_SOURCE)
     return fig
