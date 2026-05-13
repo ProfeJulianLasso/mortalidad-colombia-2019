@@ -21,7 +21,6 @@ mortalidad-colombia-2019/
 ├── requirements.txt                Dependencias pinneadas para Render
 ├── Procfile                        Comando de arranque (gunicorn)
 ├── runtime.txt                     Versión de Python para Render
-├── RENDER-DEPLOY.md                Guía clic-por-clic de despliegue
 ├── data/
 │   ├── raw/                        Microdatos originales del DANE (.xlsx)
 │   └── processed/                  Dataset enriquecido (.parquet) y resumen
@@ -52,11 +51,42 @@ Las versiones exactas resueltas para producción están en `requirements.txt`.
 
 ## Despliegue en Render
 
-La aplicación se publica como **Web Service** en Render bajo el plan **Free**. Los archivos necesarios (`Procfile`, `runtime.txt`, `requirements.txt`) ya están en el repositorio. La guía detallada con los parámetros de configuración se encuentra en [`RENDER-DEPLOY.md`](./RENDER-DEPLOY.md).
+La aplicación se publica como **Web Service** en Render bajo el plan **Free**. Los archivos necesarios para el despliegue (`Procfile`, `runtime.txt`, `requirements.txt`) están versionados en la raíz del repositorio.
 
-URL pública de la aplicación: <https://mortalidad-colombia-2019-bmkh.onrender.com/>
+### Prerrequisitos
 
-> **Nota.** El plan Free de Render suspende la instancia tras quince minutos de inactividad. El primer acceso después de un periodo prolongado puede tardar entre treinta y sesenta segundos en responder mientras el servicio se reactiva.
+- Cuenta activa en [Render](https://render.com) iniciada con la misma cuenta de GitHub donde está alojado el repositorio.
+- Repositorio `mortalidad-colombia-2019` accesible desde Render (autorizado al iniciar sesión con GitHub).
+
+### Pasos seguidos para el despliegue
+
+1. Iniciar sesión en el [dashboard de Render](https://dashboard.render.com).
+2. Hacer clic en **New +** (esquina superior derecha) y seleccionar **Web Service**.
+3. Elegir la opción **Build and deploy from a Git repository** y continuar.
+4. Seleccionar el repositorio `mortalidad-colombia-2019`. Si no aparece en la lista, abrir **Configure account** y conceder acceso a Render desde GitHub.
+5. Completar el formulario de creación con los siguientes parámetros:
+
+   | Parámetro | Valor |
+   | --- | --- |
+   | Name | `mortalidad-colombia-2019` |
+   | Region | `Oregon (US West)` |
+   | Branch | `main` |
+   | Root Directory | *(dejar vacío)* |
+   | Runtime | `Python 3` |
+   | Build Command | `pip install -r requirements.txt` |
+   | Start Command | `gunicorn app:server --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT` |
+   | Instance Type | `Free` |
+
+6. En la sección **Advanced**, mantener **Auto-Deploy** activado sobre la rama `main` para que cada `git push` genere un nuevo despliegue. No se requieren variables de entorno adicionales.
+7. Hacer clic en **Create Web Service**. El primer build toma entre cinco y diez minutos.
+8. Una vez finalizado, Render expone la aplicación en una URL pública. La URL asignada en este despliegue es: <https://mortalidad-colombia-2019-bmkh.onrender.com/>.
+
+### Validación posterior al despliegue
+
+- Acceder a la URL pública en una ventana de navegador limpia y verificar que las siete visualizaciones se carguen.
+- Cambiar el valor del filtro de departamento y comprobar que las cinco gráficas reactivas se actualicen.
+
+> **Nota sobre el plan Free.** Render suspende la instancia tras quince minutos de inactividad. El primer acceso después de un periodo prolongado puede tardar entre treinta y sesenta segundos en responder mientras el servicio se reactiva.
 
 ## Software utilizado
 
