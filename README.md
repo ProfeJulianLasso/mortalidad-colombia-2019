@@ -54,7 +54,7 @@ Las versiones exactas resueltas para producción están en `requirements.txt`.
 
 La aplicación se publica como **Web Service** en Render bajo el plan **Free**. Los archivos necesarios (`Procfile`, `runtime.txt`, `requirements.txt`) ya están en el repositorio. La guía detallada con los parámetros de configuración se encuentra en [`RENDER-DEPLOY.md`](./RENDER-DEPLOY.md).
 
-URL pública de la aplicación: *pendiente de publicación*.
+URL pública de la aplicación: <https://mortalidad-colombia-2019-bmkh.onrender.com/>
 
 > **Nota.** El plan Free de Render suspende la instancia tras quince minutos de inactividad. El primer acceso después de un periodo prolongado puede tardar entre treinta y sesenta segundos en responder mientras el servicio se reactiva.
 
