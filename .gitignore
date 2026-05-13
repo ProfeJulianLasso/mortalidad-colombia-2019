@@ -19,9 +19,6 @@ Thumbs.db
 *.swp
 *.swo
 
-# Datos procesados pesados (regenerables con scripts/build_processed.py)
-data/processed/*.parquet
-
 # Notas locales de trabajo
 notas-inventario.md
 

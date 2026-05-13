@@ -1,0 +1,17 @@
+{
+  "total_defunciones": 244355,
+  "departamentos_distintos": 33,
+  "municipios_distintos": 1026,
+  "filas_sin_departamento": 0,
+  "filas_sin_causa": 0,
+  "porcentaje_homicidios": 5.35,
+  "total_por_manera": {
+    "Natural": 212703,
+    "Homicidio": 13077,
+    "Accidente": 12332,
+    "Suicidio": 2930,
+    "Sin Determinar": 2335,
+    "Estudio": 978
+  },
+  "año_analisis": 2019
+}

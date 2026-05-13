@@ -10,3 +10,13 @@ dependencies = [
     "plotly>=6.7.0",
     "pyarrow>=24.0.0",
 ]
+
+[tool.pyright]
+include = ["src", "scripts", "app.py"]
+extraPaths = ["."]
+pythonVersion = "3.11"
+reportMissingImports = "none"
+reportAttributeAccessIssue = "none"
+reportCallIssue = "none"
+reportArgumentType = "none"
+reportReturnType = "none"
