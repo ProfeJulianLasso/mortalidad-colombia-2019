@@ -1,0 +1,36 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Datos procesados pesados (regenerables con scripts/build_processed.py)
+data/processed/*.parquet
+
+# Notas locales de trabajo
+notas-inventario.md
+
+# Distribución
+dist/
+build/
+*.egg-info/
+
+# Logs y cobertura
+*.log
+.coverage
+htmlcov/
